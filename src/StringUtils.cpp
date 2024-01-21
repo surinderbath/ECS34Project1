@@ -36,19 +36,44 @@ std::string Lower(const std::string &str) noexcept{
     return Copy;
 }
 
+//https://stackoverflow.com/questions/14544043/operand-types-are-incompatible-char-and-const-char
+//fixing an error with comparisons
+//https://cplusplus.com/forum/beginner/140760/#:~:text=string%3A%3Aerase(pos%2Clen,occupied%20by%20the%20character%20erased.
+//figuring out how to delete the space from the string
+//https://cplusplus.com/reference/cctype/isspace/
 std::string LStrip(const std::string &str) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = str;
+    int count = 0;
+    
+    while(isspace(Copy[count])){
+        count++;
+    }
+    Copy.erase(0,count);
+
+    return Copy;
 }
 
+//https://cplusplus.com/reference/string/string/erase/
 std::string RStrip(const std::string &str) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = str;
+    int count = Copy.length();
+    
+    while(isspace(Copy[count - 1])){
+        count--;
+    }
+    Copy.erase(count, Copy.length());
+
+    return Copy;
+    
 }
 
 std::string Strip(const std::string &str) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = LStrip(str);
+    auto Final = RStrip(Copy);
+    return Final;
 }
 
 std::string Center(const std::string &str, int width, char fill) noexcept{

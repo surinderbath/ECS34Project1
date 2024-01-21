@@ -31,14 +31,36 @@ TEST(StringUtilsTest, Lower){
 }
 
 TEST(StringUtilsTest, LStrip){
+    std::string Base = "  hello";
+
+    EXPECT_EQ(StringUtils::LStrip(Base), "hello");
+    EXPECT_EQ(StringUtils::LStrip(""), "");
+    EXPECT_EQ(StringUtils::LStrip("\thi"), "hi");
+    EXPECT_EQ(StringUtils::LStrip("\th i"), "h i");
+    EXPECT_EQ(StringUtils::LStrip("\t\nhi"), "hi");
+    EXPECT_EQ(StringUtils::LStrip("\thi  "), "hi  ");
     
 }
 
 TEST(StringUtilsTest, RStrip){
+    std::string Base = "hello   ";
+
+    EXPECT_EQ(StringUtils::RStrip(Base), "hello");
+    EXPECT_EQ(StringUtils::RStrip(""), "");
+    EXPECT_EQ(StringUtils::RStrip("h i\t   "), "h i");
+    EXPECT_EQ(StringUtils::RStrip("hi\t"), "hi");
+    EXPECT_EQ(StringUtils::RStrip("hi\t\n"), "hi");
+    EXPECT_EQ(StringUtils::RStrip("  hi\t"), "  hi");
     
 }
 
 TEST(StringUtilsTest, Strip){
+    std::string Base = "    hello   ";
+
+    EXPECT_EQ(StringUtils::Strip(Base), "hello");
+    EXPECT_EQ(StringUtils::Strip(""), "");
+    EXPECT_EQ(StringUtils::Strip("\t\thi\t"), "hi");
+    EXPECT_EQ(StringUtils::Strip("     \thi\t\n"), "hi");
     
 }
 
