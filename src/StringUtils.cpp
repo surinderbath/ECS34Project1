@@ -4,12 +4,12 @@
 namespace StringUtils{
 
 std::string Slice(const std::string &str, ssize_t start, ssize_t end) noexcept{
-    // Replace code here
+
     return str.substr(start, str.length() - start);
 }
 
 std::string Capitalize(const std::string &str) noexcept{
-    // Replace code here
+    
     auto Copy = str;
     Copy[0] = toupper(str[0]);
     for(size_t Index = 1; Index < Copy.length(); Index++){
@@ -19,13 +19,21 @@ std::string Capitalize(const std::string &str) noexcept{
 }
 
 std::string Upper(const std::string &str) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = str;
+    for(size_t Index = 0; Index < Copy.length(); Index++){
+        Copy[Index] = toupper(Copy[Index]);
+    }
+    return Copy;
 }
 
 std::string Lower(const std::string &str) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = str;
+    for(size_t Index = 0; Index < Copy.length(); Index++){
+        Copy[Index] = tolower(Copy[Index]);
+    }
+    return Copy;
 }
 
 std::string LStrip(const std::string &str) noexcept{

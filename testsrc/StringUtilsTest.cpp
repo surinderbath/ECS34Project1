@@ -18,10 +18,15 @@ TEST(StringUtilsTest, Capitalize){
 }
 
 TEST(StringUtilsTest, Upper){
-    
+    std::string Base = "hello";
+
+    EXPECT_EQ(StringUtils::Upper(Base), "HELLO");
 }
 
 TEST(StringUtilsTest, Lower){
+    std::string Base = "HELLO";
+
+    EXPECT_EQ(StringUtils::Lower(Base), "hello");
     
 }
 
