@@ -65,14 +65,26 @@ TEST(StringUtilsTest, Strip){
 }
 
 TEST(StringUtilsTest, Center){
-    
+    std::string Base = "Hello!";
+
+    EXPECT_EQ(StringUtils::Center(Base, 10, '#'), "##Hello!##");
+    EXPECT_EQ(StringUtils::Center(Base, 20, ' '), "       Hello!       ");
+
 }
 
 TEST(StringUtilsTest, LJust){
+    std::string Base = "Hello!";
+
+    EXPECT_EQ(StringUtils::LJust(Base, 10, '#'), "Hello!####");
+    EXPECT_EQ(StringUtils::LJust(Base, 20, ' '), "Hello!              ");
     
 }
 
 TEST(StringUtilsTest, RJust){
+    std::string Base = "Hello!";
+
+    EXPECT_EQ(StringUtils::RJust(Base, 10, '#'), "####Hello!");
+    EXPECT_EQ(StringUtils::RJust(Base, 20, ' '), "              Hello!");
     
 }
 
