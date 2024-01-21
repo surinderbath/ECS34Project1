@@ -7,8 +7,8 @@ OBJ_DIR = ./obj
 BIN_DIR = ./bin
 TEST_SRC_DIR = ./testsrc
 
-CXXFLAGS = -std = c++17 -I $(INC_DIR)
-LDFLAGS = -lgtest -lpthread
+CXXFLAGS = -std=c++17 -I $(INC_DIR)
+LDFLAGS = -lgtest -lgtest_main -lpthread
 
 all: directories runtest
 
