@@ -7,7 +7,9 @@ Student 1: Surinder Bath (919433946)
 Currently working on Center and Ljust functions.
 
 # Known Issues
-None at the moment
+Split and probably Join ", "
+    ->if splt parameter is empty string, then split on white space
+Check over center and make sure it's doing what it's supposed to
 
 ## Code References
 *[C++ uses single quotes when identifying chars](https://stackoverflow.com/questions14544043operand-types-are-incompatible-char-and-const-char)

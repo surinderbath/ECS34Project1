@@ -119,7 +119,11 @@ TEST(StringUtilsTest, Join){
 }
 
 TEST(StringUtilsTest, ExpandTabs){
-    
+    std::string Base = "Hi\tcold";
+
+     EXPECT_EQ(StringUtils::ExpandTabs(Base, 4), "Hi  cold");
+     EXPECT_EQ(StringUtils::ExpandTabs(Base, 5), "Hi   cold");
+     EXPECT_EQ(StringUtils::ExpandTabs("pc\tat", 7), "pc     at");
 }
 
 TEST(StringUtilsTest, EditDistance){
