@@ -101,8 +101,13 @@ TEST(StringUtilsTest, Split){
     std::string Base = "Hello,I am cold,We are tired";
     std::vector<std::string> v = {"Hello", "I am cold", "We are tired"};
     std::vector<std::string> w = {"apples", "bananas", "mangos"};
+    std::vector<std::string> x = {"Hello", "are", "you", "okay"};
+    std::vector<std::string> y = {"Hello", "are", "you", "okay", ""};
+
 
     EXPECT_EQ(StringUtils::Split(Base, ","), v);
+    EXPECT_EQ(StringUtils::Split("Hello\tare you okay"), x);
+    EXPECT_EQ(StringUtils::Split("Hello are you okay "), y);
     EXPECT_EQ(StringUtils::Split("apples#bananas#mangos", "#"), w);
 
 }

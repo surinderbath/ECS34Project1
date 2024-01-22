@@ -25,7 +25,7 @@ Check over center and make sure it's doing what it's supposed to
 *[How to add items to a vector](//https://cplusplus.com/reference/vector/vector/push_back/)
 *[Information on C++ substr function](//https://cplusplus.com/reference/string/string/substr/)
 *[Iterating through a vector](//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp)
-
+*[C++ find_first_of function](https://cplusplus.com/reference/string/string/find_first_of/)
 ## Generative AI Use
 None at the moment 
 

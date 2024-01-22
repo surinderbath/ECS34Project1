@@ -126,20 +126,31 @@ std::string Replace(const std::string &str, const std::string &old, const std::s
 //https://www.w3schools.com/python/ref_string_split.asp
 //https://cplusplus.com/reference/vector/vector/push_back/
 //https://cplusplus.com/reference/string/string/substr/
+//https://cplusplus.com/reference/string/string/find_first_of/
 std::vector< std::string > Split(const std::string &str, const std::string &splt) noexcept{
     auto Copy = str;
     std::vector<std::string> Final = {};
-
-    size_t pos = 0;
-    for(int i = 0; i < Copy.length(); i++){
-        pos = Copy.find(splt);
-        if (pos != std::string::npos){
-            Final.push_back(Copy.substr(0, pos));
-            Copy.erase(0, pos + splt.length());
+    if(splt == ""){
+        size_t start = 0;
+        size_t end = 0;
+        while ((end = str.find_first_of(" \t\n", start)) != std::string::npos) {
+            Final.push_back(Copy.substr(start, end - start));
+            start = end + 1;
         }
-    }
+        Final.push_back(Copy.substr(start));
 
-    Final.push_back(Copy);
+    } else{
+        size_t pos = 0;
+        for(int i = 0; i < Copy.length(); i++){
+            pos = Copy.find(splt);
+            if (pos != std::string::npos){
+                Final.push_back(Copy.substr(0, pos));
+                Copy.erase(0, pos + splt.length());
+            }
+        }
+
+        Final.push_back(Copy);
+    }
     return Final;
 }
 
@@ -177,14 +188,6 @@ std::string ExpandTabs(const std::string &str, int tabsize) noexcept{
 //https://en.wikipedia.org/wiki/Levenshtein_distance
 int EditDistance(const std::string &left, const std::string &right, bool ignorecase) noexcept{
     // Replace code here
-    if(ignorecase == true){
-        for(int i = 0; i < left.length() < i++){
-            for
-        }
-    } else{
-
-    }
-
     return 0;
 }
 
