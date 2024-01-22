@@ -137,5 +137,8 @@ TEST(StringUtilsTest, EditDistance){
     EXPECT_EQ(StringUtils::EditDistance("uniformed", "uninformed", true), 1);
     EXPECT_EQ(StringUtils::EditDistance("ABCD", "abcd", false), 4);
     EXPECT_EQ(StringUtils::EditDistance("ABCD", "abcd", true), 0);
+    EXPECT_EQ(StringUtils::EditDistance("ABCD", "", true), 4);
+    EXPECT_EQ(StringUtils::EditDistance("", "abcd", true), 4);
+
     
 }

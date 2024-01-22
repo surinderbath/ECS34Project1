@@ -186,7 +186,10 @@ std::string ExpandTabs(const std::string &str, int tabsize) noexcept{
 }
 
 //https://en.wikipedia.org/wiki/Levenshtein_distance
+//https://www.w3schools.com/cpp/cpp_arrays_multi.asp
+//https://stackoverflow.com/questions/15520880/initializing-entire-2d-array-with-one-value
 int EditDistance(const std::string &left, const std::string &right, bool ignorecase) noexcept{
+
     if(ignorecase = true){
         Lower(left);
         Lower(right);
@@ -198,6 +201,8 @@ int EditDistance(const std::string &left, const std::string &right, bool ignorec
     if(right.length() == 0){
         return left.length();
     }
+
+    
 
     return 0;
 }
