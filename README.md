@@ -7,9 +7,7 @@ Student 1: Surinder Bath (919433946)
 Currently working on Center and Ljust functions.
 
 # Known Issues
-Split and probably Join ", "
-    ->if splt parameter is empty string, then split on white space
-Check over center and make sure it's doing what it's supposed to
+EditDistance issues with base cases.
 
 ## Code References
 *[C++ uses single quotes when identifying chars](https://stackoverflow.com/questions14544043operand-types-are-incompatible-char-and-const-char)
@@ -26,6 +24,10 @@ Check over center and make sure it's doing what it's supposed to
 *[Information on C++ substr function](//https://cplusplus.com/reference/string/string/substr/)
 *[Iterating through a vector](//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp)
 *[C++ find_first_of function](https://cplusplus.com/reference/string/string/find_first_of/)
+*[Iterating through a loop](//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp)
+*[Info on EditDistance](//https://en.wikipedia.org/wiki/Levenshtein_distance)
+*[C++ front function](//https://cplusplus.com/reference/string/string/front/)
+*[C++ min function](//https://cplusplus.com/reference/algorithm/min/)
 ## Generative AI Use
 None at the moment 
 

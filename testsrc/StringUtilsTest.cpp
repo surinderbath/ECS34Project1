@@ -6,10 +6,13 @@ TEST(StringUtilsTest, SliceTest){
 
     EXPECT_EQ(StringUtils::Slice(Base,0), "Hello");
     EXPECT_EQ(StringUtils::Slice(Base,1), "ello");
+    EXPECT_EQ(StringUtils::Slice(Base,1,3), "el");
+    EXPECT_EQ(StringUtils::Slice(Base,0,-2), "Hel");
+    EXPECT_EQ(StringUtils::Slice(Base,0,-5), "");
 }
 
 TEST(StringUtilsTest, Capitalize){
-    std::string Base = "Hello";
+    std::string Base = "hello";
 
     EXPECT_EQ(StringUtils::Capitalize(Base),"Hello");
     EXPECT_EQ(StringUtils::Capitalize(std::string()),"");
@@ -21,12 +24,16 @@ TEST(StringUtilsTest, Upper){
     std::string Base = "hello";
 
     EXPECT_EQ(StringUtils::Upper(Base), "HELLO");
+    EXPECT_EQ(StringUtils::Upper("hello world!"), "HELLO WORLD!");
+    EXPECT_EQ(StringUtils::Upper("\thello"), "\tHELLO");
 }
 
 TEST(StringUtilsTest, Lower){
     std::string Base = "HELLO";
 
     EXPECT_EQ(StringUtils::Lower(Base), "hello");
+    EXPECT_EQ(StringUtils::Lower("Hello"), "hello");
+    EXPECT_EQ(StringUtils::Lower("Hello World!"), "hello world!");
     
 }
 
@@ -139,6 +146,7 @@ TEST(StringUtilsTest, EditDistance){
     EXPECT_EQ(StringUtils::EditDistance("ABCD", "abcd", true), 0);
     EXPECT_EQ(StringUtils::EditDistance("ABCD", "", true), 4);
     EXPECT_EQ(StringUtils::EditDistance("", "abcd", true), 4);
+    EXPECT_EQ(StringUtils::EditDistance("Abcd", "abcd", true), 0);
 
     
 }

@@ -7,8 +7,13 @@
 namespace StringUtils{
 
 std::string Slice(const std::string &str, ssize_t start, ssize_t end) noexcept{
-
-    return str.substr(start, str.length() - start);
+    
+    if(end == 0){
+        end = str.length();
+    } else if (end < 0){
+        end += str.length();
+    }
+    return str.substr(start, end - start);
 }
 
 std::string Capitalize(const std::string &str) noexcept{
@@ -186,14 +191,15 @@ std::string ExpandTabs(const std::string &str, int tabsize) noexcept{
 }
 
 //https://en.wikipedia.org/wiki/Levenshtein_distance
-//https://www.w3schools.com/cpp/cpp_arrays_multi.asp
-//https://stackoverflow.com/questions/15520880/initializing-entire-2d-array-with-one-value
+//https://cplusplus.com/reference/string/string/front/
+//https://cplusplus.com/reference/algorithm/min/
 int EditDistance(const std::string &left, const std::string &right, bool ignorecase) noexcept{
 
-    if(ignorecase = true){
+    if(ignorecase){
         Lower(left);
         Lower(right);
     }
+
     if(left.length() == 0){
         return right.length();
     }
@@ -202,7 +208,16 @@ int EditDistance(const std::string &left, const std::string &right, bool ignorec
         return left.length();
     }
 
-    
+    if(left.length() == 0 && right.length() == 0){
+        return 0;
+    }
+
+    if(left.front() == right.front()){
+        return EditDistance(left.substr(1), right.substr(1), ignorecase);
+    }
+    if(left.front() != right.front()){
+        return 1 + std::min(std::min(EditDistance(left.substr(1),right.substr(1), ignorecase), EditDistance(left.substr(1), right, ignorecase)), EditDistance(left, right.substr(1), ignorecase));
+    }
 
     return 0;
 }
