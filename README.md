@@ -21,6 +21,11 @@ Check over center and make sure it's doing what it's supposed to
 *[C++ function that replaces given strings at given positions](//https://cplusplus.com/reference/string/string/replace/)
 *[C++ function that finds the position of string in a given string](//https://cplusplus.com/reference/string/string/find/)
 *[Explanation of usage of npos](//https://www.educative.io/answers/what-is-stringnpos-in-cpp)
+*[Information on Python Split Function](//https://www.w3schools.com/python/ref_string_split.asp)
+*[How to add items to a vector](//https://cplusplus.com/reference/vector/vector/push_back/)
+*[Information on C++ substr function](//https://cplusplus.com/reference/string/string/substr/)
+*[Iterating through a vector](//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp)
+
 ## Generative AI Use
 None at the moment 
 

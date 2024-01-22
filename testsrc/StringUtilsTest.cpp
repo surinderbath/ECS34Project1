@@ -98,7 +98,7 @@ TEST(StringUtilsTest, Replace){
 }
 
 TEST(StringUtilsTest, Split){
-    std::string Base = "Hello, I am cold, We are tired";
+    std::string Base = "Hello,I am cold,We are tired";
     std::vector<std::string> v = {"Hello", "I am cold", "We are tired"};
     std::vector<std::string> w = {"apples", "bananas", "mangos"};
 
@@ -127,5 +127,10 @@ TEST(StringUtilsTest, ExpandTabs){
 }
 
 TEST(StringUtilsTest, EditDistance){
+    
+    EXPECT_EQ(StringUtils::EditDistance("kitten", "sitting", true), 3);
+    EXPECT_EQ(StringUtils::EditDistance("uniformed", "uninformed", true), 1);
+    EXPECT_EQ(StringUtils::EditDistance("ABCD", "abcd", false), 4);
+    EXPECT_EQ(StringUtils::EditDistance("ABCD", "abcd", true), 0);
     
 }

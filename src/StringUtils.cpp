@@ -174,8 +174,17 @@ std::string ExpandTabs(const std::string &str, int tabsize) noexcept{
     return Final;
 }
 
+//https://en.wikipedia.org/wiki/Levenshtein_distance
 int EditDistance(const std::string &left, const std::string &right, bool ignorecase) noexcept{
     // Replace code here
+    if(ignorecase == true){
+        for(int i = 0; i < left.length() < i++){
+            for
+        }
+    } else{
+
+    }
+
     return 0;
 }
 
