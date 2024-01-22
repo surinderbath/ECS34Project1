@@ -16,6 +16,9 @@ None at the moment
 *[Python functions for Center, LJust, RJust](//https://www.geeksforgeeks.org/python-string-ljust-rjust-center/)
 *[Initializing empty string in C++](//https://www.quora.com/How-do-you-define-an-empty-string-in-C-and-the-usage-of-const-empty-strings#:~:text=Using%20the%20default%20constructor%3A%20An,string%20to%20an%20empty%20state.)
 *[Copying strings in C++](//https://stackoverflow.com/questions/12678819/how-to-copy-a-string-of-stdstring-type-in-c)
+*[C++ function that replaces given strings at given positions](//https://cplusplus.com/reference/string/string/replace/)
+*[C++ function that finds the position of string in a given string](//https://cplusplus.com/reference/string/string/find/)
+*[Explanation of usage of npos](//https://www.educative.io/answers/what-is-stringnpos-in-cpp)
 ## Generative AI Use
 None at the moment 
 

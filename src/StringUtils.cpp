@@ -1,5 +1,8 @@
 #include "StringUtils.h"
 #include <cctype>
+#include <iostream>
+#include <sstream>
+#include <vector>
 
 namespace StringUtils{
 
@@ -82,7 +85,8 @@ std::string Center(const std::string &str, int width, char fill) noexcept{
     int chars_needed = width - str.length();
     std::string chars_string_front = "";
     chars_string_front.append(chars_needed/2, fill);
-    std::string chars_string_back = chars_string_front;
+    std::string chars_string_back = "";
+    chars_string_back.append(chars_needed - (chars_needed/2), fill);
     std::string Final = chars_string_front + str + chars_string_back;
     return Final;
 }
@@ -97,7 +101,7 @@ std::string LJust(const std::string &str, int width, char fill) noexcept{
 }
 
 std::string RJust(const std::string &str, int width, char fill) noexcept{
-    
+
     int chars_needed = width - str.length();
     std::string chars_string_front = "";
     chars_string_front.append(chars_needed, fill);
@@ -105,19 +109,50 @@ std::string RJust(const std::string &str, int width, char fill) noexcept{
     return Final;
 }
 
+//https://cplusplus.com/reference/string/string/replace/
+//https://cplusplus.com/reference/string/string/find/
+//https://www.educative.io/answers/what-is-stringnpos-in-cpp
 std::string Replace(const std::string &str, const std::string &old, const std::string &rep) noexcept{
-    // Replace code here
-    return "";
+    
+    auto Copy = str;
+    size_t found_pos = Copy.find(old);
+    if (found_pos != std::string::npos){
+        Copy.replace(found_pos, old.length(), rep);
+    }
+
+    return Copy;
 }
 
+//https://www.w3schools.com/python/ref_string_split.asp
+//https://cplusplus.com/reference/vector/vector/push_back/
+//https://cplusplus.com/reference/string/string/substr/
 std::vector< std::string > Split(const std::string &str, const std::string &splt) noexcept{
-    // Replace code here
-    return {};
+    auto Copy = str;
+    std::vector<std::string> Final = {};
+
+    size_t pos = 0;
+    for(int i = 0; i < Copy.length(); i++){
+        pos = Copy.find(splt);
+        if (pos != std::string::npos){
+            Final.push_back(Copy.substr(0, pos));
+            Copy.erase(0, pos + splt.length());
+        }
+    }
+
+    Final.push_back(Copy);
+    return Final;
 }
 
+//https://www.educative.io/answers/how-to-iterate-through-a-vector-in-cpp
 std::string Join(const std::string &str, const std::vector< std::string > &vect) noexcept{
-    // Replace code here
-    return "";
+    std::string Final = "";
+    for(int i = 0; i < vect.size(); i++){
+        Final.append(vect[i]);
+        Final.append(str);
+    } 
+    
+    Final.erase(Final.length() - str.length());
+    return Final;
 }
 
 std::string ExpandTabs(const std::string &str, int tabsize) noexcept{

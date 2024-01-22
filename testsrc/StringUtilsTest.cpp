@@ -68,6 +68,7 @@ TEST(StringUtilsTest, Center){
     std::string Base = "Hello!";
 
     EXPECT_EQ(StringUtils::Center(Base, 10, '#'), "##Hello!##");
+    EXPECT_EQ(StringUtils::Center(Base, 11, '#'), "##Hello!###");
     EXPECT_EQ(StringUtils::Center(Base, 20, ' '), "       Hello!       ");
 
 }
@@ -89,15 +90,32 @@ TEST(StringUtilsTest, RJust){
 }
 
 TEST(StringUtilsTest, Replace){
-    
+    std::string Base = "Hello cold";
+
+    EXPECT_EQ(StringUtils::Replace(Base, "cold", "World"), "Hello World");
+    EXPECT_EQ(StringUtils::Replace("I like apples", "like", "hate"), "I hate apples");
+
 }
 
 TEST(StringUtilsTest, Split){
-    
+    std::string Base = "Hello, I am cold, We are tired";
+    std::vector<std::string> v = {"Hello", "I am cold", "We are tired"};
+    std::vector<std::string> w = {"apples", "bananas", "mangos"};
+
+    EXPECT_EQ(StringUtils::Split(Base, ","), v);
+    EXPECT_EQ(StringUtils::Split("apples#bananas#mangos", "#"), w);
+
 }
 
 TEST(StringUtilsTest, Join){
-    
+    std::vector<std::string> Base = {"Hello", "I am cold", "We are tired"};
+    std::vector<std::string> w = {"apples", "bananas", "mangos"};
+
+    EXPECT_EQ(StringUtils::Join(",", Base), "Hello,I am cold,We are tired");
+    EXPECT_EQ(StringUtils::Join("#", Base), "Hello#I am cold#We are tired");
+    EXPECT_EQ(StringUtils::Join("##", Base), "Hello##I am cold##We are tired");
+    EXPECT_EQ(StringUtils::Join(",", w), "apples,bananas,mangos");
+
 }
 
 TEST(StringUtilsTest, ExpandTabs){
